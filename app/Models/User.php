@@ -5,7 +5,20 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Date;
 
+/**
+ * Class User
+ * @package App\Models
+ * @property string name
+ * @property string surname
+ * @property string patronymic
+ * @property string email
+ * @property string address
+ * @property string phone
+ * @property date birthday
+ * @property string password
+ */
 class User extends Authenticatable
 {
     use Notifiable;
@@ -16,7 +29,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'surname',
+        'patronymic',
+        'email',
+        'password',
+        'address',
+        'phone',
     ];
 
     /**
@@ -35,5 +54,6 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'birthday' => 'date',
     ];
 }

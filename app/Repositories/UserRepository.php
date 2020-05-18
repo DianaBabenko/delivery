@@ -39,8 +39,34 @@ class UserRepository
         return $this->update($newUser, $data);
     }
 
+    /**
+     * @param User $user
+     * @param array $data
+     * @return User
+     */
     public function update(User $user, array $data): User
     {
-        //
+        $user->name = $data['name'];
+        $user->surname = $data['surname'];
+        $user->patronymic = $data['patronymic'];
+        $user->email = $data['email'];
+        $user->address = $data['address'];
+        $user->phone = $data['phone'];
+        $user->birthday = $data['birthday'];
+        //$user->password = $data['password'];
+
+        $user->save();
+        return $user;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function delete(int $id): void
+    {
+        User::query()
+            ->where('id', '=', $id)
+            ->delete()
+        ;
     }
 }
