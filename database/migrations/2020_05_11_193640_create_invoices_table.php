@@ -21,8 +21,9 @@ class CreateInvoicesTable extends Migration
             $table->bigInteger('from_department_id');
             $table->bigInteger('to_department_id');
             $table->dateTime('departure_date');
-            $table->dateTime('delivery_date');
+            $table->dateTime('delivery_date')->nullable();
             $table->bigInteger('delivery_type_id');
+            $table->float('price')->nullable();
             $table->timestamps();
         });
     }

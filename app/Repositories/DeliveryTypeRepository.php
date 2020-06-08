@@ -4,6 +4,7 @@
 namespace App\Repositories;
 
 use App\Models\DeliveryType;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 
 /**
@@ -62,6 +63,17 @@ class DeliveryTypeRepository
         DeliveryType::query()
             ->where('id', '=', $id)
             ->delete()
+        ;
+    }
+
+    /**
+     * @param int|null $count
+     * @return LengthAwarePaginator
+     */
+    public function getDeliveryTypesWithPaginate(int $count = null): LengthAwarePaginator
+    {
+        return DeliveryType::query()
+            ->paginate($count)
         ;
     }
 }

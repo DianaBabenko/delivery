@@ -4,6 +4,7 @@
 namespace App\Repositories;
 
 use App\Models\Department;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 
 /**
@@ -62,6 +63,17 @@ class DepartmentRepository
         Department::query()
             ->where('id', '=', $id)
             ->delete()
+        ;
+    }
+
+    /**
+     * @param int|null $count
+     * @return LengthAwarePaginator
+     */
+    public function getDepartsWithPaginate(int $count = null): LengthAwarePaginator
+    {
+        return Department::query()
+            ->paginate($count)
         ;
     }
 }

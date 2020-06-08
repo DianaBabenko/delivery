@@ -3,8 +3,13 @@
 
 namespace App\Repositories;
 
-use App\Models\Person;
+use App\Http\Requests\PersonRequest;
+use App\Models\Recipient;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class PersonRepository
@@ -14,11 +19,11 @@ class PersonRepository
 {
     /**
      * @param int $id
-     * @return Person|null|object
+     * @return Recipient|null|object
      */
-    public function find(int $id): ?Person
+    public function find(int $id): ?Recipient
     {
-        return Person::query()->find($id);
+        return Recipient::query()->find($id);
     }
 
     /**
@@ -26,26 +31,43 @@ class PersonRepository
      */
     public function all(): Collection
     {
-        return Person::all();
+        return Recipient::all();
     }
 
     /**
      * @param array $data
-     * @return Person
+     * @return Recipient
      */
-    public function create(array $data): Person
+    public function create(array $data): Recipient
     {
-        $newPerson = new Person();
+        $newPerson = new Recipient();
 
         return $this->update($newPerson, $data);
     }
 
     /**
-     * @param Person $person
-     * @param array $data
-     * @return Person
+     * @param Request $request
+     * @return Recipient|object
      */
-    public function update(Person $person, array $data):  Person
+    public function store(Request $request): Recipient
+    {
+        $newPerson = $request->input();
+
+        $person = Recipient::query()->create($newPerson);
+
+        if ($person === null) {
+            throw new NotFoundHttpException();
+        }
+
+        return $person;
+    }
+
+    /**
+     * @param Recipient $person
+     * @param array $data
+     * @return Recipient
+     */
+    public function update(Recipient $person, array $data):  Recipient
     {
         $person->name = $data['name'];
         $person->surname = $data['surname'];
@@ -61,9 +83,21 @@ class PersonRepository
      */
     public function delete(int $id): void
     {
-        Person::query()
+        Recipient::query()
             ->where('id', '=', $id)
             ->delete()
+        ;
+    }
+
+    /**
+     * @param int|null $count
+     * @return LengthAwarePaginator
+     */
+    public function getPersonsWithPaginate(int $count = null): LengthAwarePaginator
+    {
+        return Recipient::query()
+            ->with(['invoice'])
+            ->paginate($count)
         ;
     }
 }

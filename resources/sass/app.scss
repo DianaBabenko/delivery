@@ -6,3 +6,9 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.display-center__div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

@@ -53,7 +53,7 @@ class UserRepository
         $user->address = $data['address'];
         $user->phone = $data['phone'];
         $user->birthday = $data['birthday'];
-        //$user->password = $data['password'];
+        //$users->password = $data['password'];
 
         $user->save();
         return $user;

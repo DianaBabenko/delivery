@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Date;
 /**
  * Class Invoice
  * @package App\Models
+ * @property integer id
  * @property string code
  * @property integer sender_id
  * @property integer recipient_id
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\Date;
  * @property date departure_date
  * @property date delivery_date
  * @property integer delivery_type_id
+ * @property float price
  */
 class Invoice extends Model
 {
@@ -30,6 +32,12 @@ class Invoice extends Model
         'departure_date',
         'delivery_date',
         'delivery_type_id',
+        'price'
+    ];
+
+    protected $casts = [
+        'delivery_date'     => 'datetime',
+        'departure_date'    => 'datetime',
     ];
 
     /**
@@ -45,7 +53,7 @@ class Invoice extends Model
      */
     public function recipient(): BelongsTo
     {
-        return $this->belongsTo(Person::class, 'recipient_id', 'id');
+        return $this->belongsTo(Recipient::class, 'recipient_id', 'id');
     }
 
     /**

@@ -19,7 +19,7 @@ class CreateParcelsTable extends Migration
             $table->float('length');
             $table->float('width');
             $table->float('height');
-            $table->float('volume');
+            $table->float('volume')->nullable();
             $table->string('description');
             $table->bigInteger('invoice_id');
             $table->float('cost')->nullable();

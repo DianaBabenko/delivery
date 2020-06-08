@@ -20,3 +20,35 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+$group = [
+    'prefix' => 'invoices',
+    'middleware' => ['auth'],
+];
+
+
+$methods = ['index', 'edit', 'update', 'create', 'store', 'show', 'destroy'];
+
+Route::resource('invoices', 'InvoiceController')
+    ->only($methods)
+    ->names('invoices');
+
+Route::resource('account', 'UserController')
+    ->only($methods)
+    ->names('account');
+
+Route::group($group, static function () {
+    $methods = ['index', 'edit', 'update', 'create', 'store', 'show', 'destroy'];
+    Route::resource('{invoice}/parcels', 'ParcelController')
+        ->only($methods)
+        ->names('invoices.parcels');
+
+    Route::resource('{invoice}/senders', 'UserController')
+        ->only($methods)
+        ->names('invoices.senders');
+});
+
+Route::get('/about/departments', 'DepartmentController@index')->name('about.departments.index');
+
+//Route::get('invoice/{invoice}/parcels/{parcel}/edit', 'ParcelController@edit')->name('invoices.parcels.edit');
+//Route::get('invoices/{invoice}/parcels')

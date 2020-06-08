@@ -14,36 +14,58 @@ class UserSeeder extends Seeder
     {
         $data = [
             [
-                'name' => 'Автор не известен',
-                'surname' => 'SomeS',
-                'patronymic' => 'SomeP',
-                'address' => 'SomeA',
-                'birthday' => \Faker\Provider\DateTime::dateTime(),
-                'phone' => '+38095959595',
-                'email' => 'anonim@gmail.com',
+                'name' => 'Тетяна',
+                'surname' => 'Бабенко',
+                'patronymic' => 'Вікторівна',
+                'address' => 'Черкаси, вул. Надпільна, 425',
+                'birthday' => \Faker\Provider\DateTime::dateTimeBetween('-40 years', '-18 years'),
+                'phone' => '+38095989595',
+                'email' => 'babenkoTanya@gmail.com',
+                'password' => bcrypt('password'),
+
+            ],
+            [
+                'name' => 'Любов',
+                'surname' => 'Кравченко',
+                'patronymic' => 'Миколаівна',
+                'address' => 'Черкаси, вул. Гагаріна, 56',
+                'birthday' => \Faker\Provider\DateTime::dateTimeBetween('-60 years', '-18 years'),
+                'phone' => '+38095959585',
+                'email' => 'kravchenko@gmail.com',
+                'password' => bcrypt('password'),
+
+            ],
+            [
+                'name' => 'Віктор',
+                'surname' => 'Дорошенко',
+                'patronymic' => 'Іванович',
+                'address' => 'Черкаси, вул. Благовісна, 89',
+                'birthday' => \Faker\Provider\DateTime::dateTimeBetween('-60 years', '-18 years'),
+                'phone' => '+38095959535',
+                'email' => 'doroshenko@gmail.com',
                 'password' => bcrypt('password'),
 
             ],
 
             [
-                'name' => 'Автор',
-                'surname' => 'SomeS',
-                'patronymic' => 'SomeP',
-                'address' => 'SomeA',
+                'name' => 'Віталій',
+                'surname' => 'Онойко',
+                'patronymic' => 'Сергійович',
+                'address' => 'Черкаси, вул. Хоменка, 12',
                 'phone' => '+38095659595',
-                'birthday' => \Faker\Provider\DateTime::dateTime(),
-                'email' => 'author@gmail.com',
+                'birthday' =>\Faker\Provider\DateTime::dateTimeBetween('-22 years', '-18 years'),
+                'email' => 'onoiko@gmail.com',
                 'password' => bcrypt('password'),
 
             ],
 
             [
-                'name' => 'Diana',
-                'surname' => 'SomeS',
-                'patronymic' => 'SomeP',
-                'address' => 'SomeA',
-                'phone' => '+38085959595',
-                'birthday' => \Faker\Provider\DateTime::dateTime(),
+                'name' => 'Діана',
+                'surname' => 'Бабенко',
+                'patronymic' => 'Олегівна',
+                'address' => 'Черкаси, бульв. Шевченка, 42',
+                'phone' => '+380959509595',
+                'birthday' => \Faker\Provider\DateTime::dateTimeBetween('-22 years', '-18 years'),
                 'email' => 'babenko@gmail.com',
                 'password' => bcrypt('password'),
 
