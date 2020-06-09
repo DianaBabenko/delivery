@@ -15,7 +15,7 @@
                         <div class="ml-2">
                             <div>
                                 <div class="row ml-3 mt-2">
-                                    <h3>Відправлення</h3>
+                                    <h3>Посилки</h3>
                                     <div class="ml-2 mt-1">
                                         <span class="border border-dark rounded pb-1" style="padding: 1px 2px">
                                             <a href="{{ route('invoices.parcels.create', [$invoice->id])}}">
@@ -26,7 +26,7 @@
                                 </div>
                                 @if ($parcels->isNotEmpty())
                                     <div class="row ml-3">
-                                        <div>Всього відправлень: {{$parcels->count()}} </div>
+                                        <div>Всього посилок: {{$parcels->count()}} </div>
                                         <div class="ml-4">Оголошена вартість посилок: {{$invoice->price}} грн</div>
                                     </div>
                                     <div class="row w-full">
@@ -118,7 +118,7 @@
                             </div>
                             <div class="mt-2">
                                 <div class="row justify-content-center">
-                                    <h3 class="ml-3">Додаткова інформація</h3>
+                                    <h3 class="ml-3">Основна інформація</h3>
                                     <div class="ml-2 mt-1">
                                         <span class="border border-dark rounded pb-1">
                                             <a href="{{ route('invoices.edit', $invoice->id) }}">

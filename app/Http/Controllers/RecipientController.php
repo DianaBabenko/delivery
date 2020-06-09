@@ -12,10 +12,10 @@ use Illuminate\View\View;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * Class PersonController
+ * Class RecipientController
  * @package App\Http\Controllers
  */
-class PersonController extends Controller
+class RecipientController extends Controller
 {
     /**
      * @var PersonRepository
@@ -28,34 +28,12 @@ class PersonController extends Controller
     private $invoices;
 
     /**
-     * PersonController constructor.
+     * RecipientController constructor.
      * @param Recipient $persons
-     * @param Invoice $invoices
      */
-    public function __construct(Recipient $persons, Invoice $invoices)
+    public function __construct(Recipient $persons)
     {
        $this->persons = $persons;
-       $this->invoices = $invoices;
-    }
-
-    /**
-     * @return View
-     */
-    public function index(): View
-    {
-        $paginatePersons = $this->persons->getPersonsWithPaginate(20);
-
-        return view('');
-    }
-
-    /**
-     * @return View
-     */
-    public function create(): View
-    {
-        $person = Recipient::query()->make();
-
-        return view('');
     }
 
     /**

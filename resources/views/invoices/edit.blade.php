@@ -15,7 +15,7 @@
                             <div class="card-body main-div radius-div">
                                 <div>
                                     <div>
-                                        <h3 class="text-center">Додаткова інформація</h3>
+                                        <h3 class="text-center">Основна інформація</h3>
                                         <div class="row justify-content-center mt-2">
                                             <div class="form-group col-5">
                                                 <label for="departure_date" class="ml-2">Дата відправлення</label>

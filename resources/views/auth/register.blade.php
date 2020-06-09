@@ -46,7 +46,7 @@
                             </div>
                         </div>
                         <div class="row justify-content-center">
-                            <div class="form-group col-3">
+                            <div class="form-group col-4">
                                 <label for="birthday" class="ml-2">Дата народження</label>
                                 <input id="birthday" type="date" class="form-control @error('birthday') is-invalid @enderror" name="birthday" value="{{ old('birthday') }}">
 
@@ -56,7 +56,7 @@
                                     </span>
                                 @enderror
                             </div>
-                            <div class="form-group col-3">
+                            <div class="form-group col-5">
                                 <label for="address" class="ml-2">Адреса</label>
                                 <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
 
@@ -66,8 +66,19 @@
                                     </span>
                                 @enderror
                             </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="form-group col-5">
+                                <label for="email" class="ml-2">Email</label>
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
-                            <div class="form-group col-3">
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group col-4">
                                 <label for="phone" class="ml-2">Телефон</label>
                                 <input id="phone" type="tel" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
 
@@ -79,17 +90,7 @@
                             </div>
                         </div>
                         <div class="row justify-content-center">
-                            <div class="form-group col-3">
-                                <label for="email" class="ml-2">Email</label>
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="form-group col-3">
+                            <div class="form-group col-4">
                                 <label for="password" class="ml-2">Пароль</label>
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
@@ -100,7 +101,7 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group col-3">
+                            <div class="form-group col-4">
                                 <label for="password-confirm" class="ml-2">Підтвердіть пароль</label>
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>

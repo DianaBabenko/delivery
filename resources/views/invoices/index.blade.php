@@ -6,7 +6,7 @@
             <div class="">
                 <div class="rounded">
                     <div class="header-div row justify-content-center shadow-sm radius-div">
-                        <h2 class="text-dark">Мої посилки</h2>
+                        <h2 class="text-dark">Мої накладні</h2>
                     </div>
                     <div class="card-body main-div radius-div">
                         <div class="row justify-content-end mr-3 mb-2">
@@ -25,7 +25,7 @@
                                 <th>#</th>
                                 <th>Код</th>
 {{--                                <th>Відправник</th>--}}
-                                <th>Отримувач</th>
+                                <th>Одержувач</th>
                                 <th>Адреса відправлення</th>
                                 <th>Дата відправлення</th>
                                 <th>Адреса доставки</th>

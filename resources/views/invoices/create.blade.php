@@ -8,12 +8,12 @@
                     @csrf
                     <div class="col-md-12">
                         <div class="header-div row justify-content-center shadow-sm radius-div">
-                            <h4>Створення накладної</h4>
+                            <h3>Створення накладної</h3>
                         </div>
                         <div class="card-body main-div radius-div">
                             <div>
                                 <div>
-                                    <h4 class="ml-5">Додаткова інформація</h4>
+                                    <h3 class="text-center">Основна інформація</h3>
 
                                     <div class="row justify-content-center">
                                         <div class="form-group col-5">
@@ -67,7 +67,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <h4 class="ml-5">Одержувач</h4>
+                                    <h3 class="text-center mt-3">Одержувач</h3>
                                     <div class="row justify-content-center">
                                         <div class="form-group col-5">
                                             <label for="name" class="ml-2">Ім'я</label>

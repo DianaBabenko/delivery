@@ -10,7 +10,7 @@
                     <div class="col-md-12">
                         <div class="header-div row justify-content-center shadow-sm radius-div">
                             <div class="">
-                                <h4 class="mt-1">Створення відправлення</h4>
+                                <h4 class="mt-1">Створення посилки</h4>
                             </div>
                         </div>
                         <div class="card-body main-div radius-div">
@@ -63,7 +63,7 @@
                             </div>
                             <div>
                                 <div class="form-group">
-                                    <label for="description" class="ml-3">Опис відправлення</label>
+                                    <label for="description" class="ml-3">Опис посилки</label>
                                     <textarea name="description"
                                               id="description"
                                               class="form-control pl-3"

@@ -15,25 +15,13 @@ class UserController extends Controller
     /** @var UserRepository */
     private $users;
 
-    /** @var InvoiceRepository */
-    private $invoices;
-
-    /** @var ParcelRepository */
-    private $parcels;
-
     /**
      * UserController constructor.
      * @param UserRepository $users
-     * @param InvoiceRepository $invoices
-     * @param ParcelRepository $parcels
      */
-    public function __construct(UserRepository $users, InvoiceRepository $invoices,
-                                ParcelRepository $parcels
-    )
+    public function __construct(UserRepository $users)
     {
         $this->users = $users;
-        $this->invoices = $invoices;
-        $this->parcels = $parcels;
     }
 
     /**
@@ -71,28 +59,20 @@ class UserController extends Controller
 
     /**
      * @param UserRequest $request
-     * @param int $invoice_id
      * @param int $user_id
      * @return RedirectResponse
      */
-    public function update(UserRequest $request, int $invoice_id, int $user_id): RedirectResponse
+    public function update(UserRequest $request, int $user_id): RedirectResponse
     {
         $user = $this->users->find($user_id);
-        //$invoice = $this->invoices->find($invoice_id);
 
         if ($user === null) {
             return back()
                 ->withInput();
         }
 
-//        if ($invoice === null) {
-////            throw new NotFoundHttpException();
-////        }
-
         $updateUser = $request->all();
-
         $result = $user->update($updateUser);
-        //$parcels = $this->parcels->getByInvoiceId($invoice->id);
 
         if ($result === true) {
             return redirect()

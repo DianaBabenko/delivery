@@ -168,7 +168,7 @@
                                 <a class="nav-link text-dark" href="{{ route('about.departments.index') }}">Про нас</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="{{ route('invoices.index') }}">Мої посилки</a>
+                                <a class="nav-link text-dark" href="{{ route('invoices.index') }}">Мої накладні</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link text-dark dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

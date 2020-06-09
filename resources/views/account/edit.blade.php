@@ -11,7 +11,7 @@
                     <div class="col-md-12">
                         <div class="header-div row justify-content-center shadow-sm radius-div">
                             <div class="">
-                                <h4 class="mt-1">Редагування даних</h4>
+                                <h3 class="mt-1">Редагування даних</h3>
                             </div>
                         </div>
                         <div class="card-body  main-div  radius-div">
@@ -47,6 +47,33 @@
                                     <label for="phone" class="ml-2">Телефон</label>
                                     <input name="phone" value="{{ $user->phone }}"
                                            id="phone"
+                                           type="text"
+                                           class="form-control field-input__div"
+                                           required
+                                    >
+                                </div>
+                                <div class="form-group col-5">
+                                    <label for="address" class="ml-2">Адреса</label>
+                                    <input name="address" value="{{ $user->address }}"
+                                           id="address"
+                                           type="text"
+                                           class="form-control field-input__div"
+                                           required
+                                    >
+                                </div>
+                                <div class="form-group col-3">
+                                    <label for="birthday" class="ml-2">Дата народження</label>
+                                    <input name="birthday" value="{{ optional($user->birthday)->format('Y-m-d') }}"
+                                           id="birthday"
+                                           type="date"
+                                           class="form-control field-input__div"
+                                           required
+                                    >
+                                </div>
+                                <div class="form-group col-3">
+                                    <label for="email" class="ml-2">Email</label>
+                                    <input name="email" value="{{ $user->email }}"
+                                           id="email"
                                            type="text"
                                            class="form-control field-input__div"
                                            required

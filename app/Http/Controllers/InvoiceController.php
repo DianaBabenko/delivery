@@ -76,27 +76,10 @@ class InvoiceController extends Controller
 
         $parcels = $this->parcels->getByInvoiceId($id);
 
-//        if ($parcels === null) {
-//            throw new NotFoundHttpException();
-//        }
-
         return view('invoices.show', [
             'invoice' => $invoice,
             'parcels' => $parcels,
         ]);
-    }
-
-    /**
-     * @param int $id
-     * @return View
-     */
-    public function find(int $id): View
-    {
-        $invoice = $this->invoices->find($id);
-
-        $parcels = $this->parcels->getByInvoiceId($id);
-
-        return view();
     }
 
     /**
@@ -140,7 +123,6 @@ class InvoiceController extends Controller
         $invoice->recipient_id = $recipient->id;
         $invoice->sender_id = auth()->user()->id;
         $invoice->code = strtoupper(substr(sha1(random_bytes(20)), 0, 20));
-        //$invoice->delivery_date = Carbon::create($request['departure_date'])->addDays(3);
         $invoice->save();
 
         if ($invoice) {

@@ -6,7 +6,7 @@
             <div class="w-full col-11">
                 <div class="">
                     <div class="header-div row justify-content-center shadow-sm radius-div">
-                        <h4 class="mt-1">Інформація про нас</h4>
+                        <h3 class="mt-1">Інформація про нас</h3>
                     </div>
                     <div class="card-body  main-div  radius-div">
                         <div class="row ">
@@ -34,7 +34,7 @@
                                             @php /** @var \App\Models\DeliveryType $deliveryType */ @endphp
                                             <div class="ml-2 row w-full col-3 mr-3 px-4 info-card__div-small">
                                                 <div class="my-2 row ml-1">
-                                                    <div class="mr-2">{{$deliveryType->name}}</div>
+                                                    <div class="mr-2">{{$deliveryType->name}}:</div>
                                                     <div>{{$deliveryType->cost}} грн</div>
                                                 </div>
                                             </div>
