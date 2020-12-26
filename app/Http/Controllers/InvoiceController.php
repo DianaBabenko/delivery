@@ -37,6 +37,9 @@ class InvoiceController extends Controller
      * InvoiceController constructor.
      * @param InvoiceRepository $invoices
      * @param ParcelRepository $parcels
+     * @param DepartmentRepository $departments
+     * @param PersonRepository $persons
+     * @param DeliveryTypeRepository $deliveries
      */
     public function __construct(InvoiceRepository $invoices, ParcelRepository $parcels,
                                 DepartmentRepository $departments, PersonRepository $persons,

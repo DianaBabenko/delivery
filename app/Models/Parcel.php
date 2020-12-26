@@ -46,7 +46,7 @@ class Parcel extends Model
     {
         return $this->belongsToMany(
             Invoice::class,
-            'invoice_parcels',
+            'invoicre_parcels',
             'invoice_id',
             'parcel_id',
             'id',

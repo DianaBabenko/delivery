@@ -20,20 +20,15 @@ class RecipientController extends Controller
     /**
      * @var PersonRepository
      */
-    private $persons;
-
-    /**
-     * @var InvoiceRepository
-     */
-    private $invoices;
+    private $recipients;
 
     /**
      * RecipientController constructor.
-     * @param Recipient $persons
+     * @param Recipient $recipient
      */
-    public function __construct(Recipient $persons)
+    public function __construct(Recipient $recipient)
     {
-       $this->persons = $persons;
+       $this->recipients = $recipient;
     }
 
     /**
@@ -55,7 +50,7 @@ class RecipientController extends Controller
      */
     public function edit($id): View
     {
-        $person = $this->persons->find($id);
+        $person = $this->recipients->find($id);
 
         if ($person === null) {
             throw new NotFoundHttpException();
@@ -71,7 +66,7 @@ class RecipientController extends Controller
      */
     public function update(PersonRequest $request, int $id): RedirectResponse
     {
-        $person = $this->persons->find($id);
+        $person = $this->recipients->find($id);
 
         if ($person === null) {
             return back();
@@ -95,7 +90,7 @@ class RecipientController extends Controller
      */
     public function destroy(int $id): RedirectResponse
     {
-        $person = $this->persons->delete($id);
+        $person = $this->recipients->delete($id);
 
         if ($person === 1) {
             return redirect()

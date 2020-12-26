@@ -72,7 +72,6 @@
                                 @else
                                     <div class="ml-4">Відправлень поки не має</div>
                                 @endif
-
                             </div>
                             <div class="row m-3 justify-content-center">
                                 <div class="flex-column mr-5">
@@ -142,4 +141,5 @@
             </div>
         </div>
     </div>
+</div>
 @endsection

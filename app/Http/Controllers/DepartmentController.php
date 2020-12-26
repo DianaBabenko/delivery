@@ -30,7 +30,6 @@ class DepartmentController extends Controller
      */
     public function index(): View
     {
-        //$paginateDeparts = $this->departments->getDepartsWithPaginate(25);
         $departments = $this->departments->all();
         $deliveryTypes = $this->deliveryTypes->all();
 

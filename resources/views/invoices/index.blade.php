@@ -24,7 +24,6 @@
                             <tr>
                                 <th>#</th>
                                 <th>Код</th>
-{{--                                <th>Відправник</th>--}}
                                 <th>Одержувач</th>
                                 <th>Адреса відправлення</th>
                                 <th>Дата відправлення</th>
@@ -46,7 +45,6 @@
                                             {{ $invoice->code }}
                                         </a>
                                     </td>
-{{--                                    <td>{{ $invoice->sender->name}} {{$invoice->sender->surname}} </td>--}}
                                     <td>{{ $invoice->recipient->name}} {{$invoice->recipient->surname}} {{ $invoice->recipient->patronymic}}</td>
                                     <td>{{ $invoice->from_department->name }}</td>
                                     <td>{{ optional($invoice->departure_date)->format('d M Y') }}</td>
@@ -64,7 +62,6 @@
                                         <form method="POST" action="{{ route('invoices.destroy', $invoice->id) }}">
                                             @method('DELETE')
                                             @csrf
-
                                             <button type="submit" class="btn btn-sm btn-outline-danger border-danger" style="padding: 3.5px 8px">X
                                             </button>
                                         </form>

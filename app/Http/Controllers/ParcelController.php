@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Http\Controllers;
-
 
 use App\Http\Requests\ParcelRequest;
 use App\Models\Invoice;
@@ -38,7 +36,6 @@ class ParcelController extends Controller
     public function index(): View
     {
         $paginateParcels = $this->parcels->getParcelsWithPaginate(25);
-
         return view();
     }
 
@@ -66,7 +63,6 @@ class ParcelController extends Controller
     public function create(int $invoice_id): View
     {
         $parcel = Parcel::query()->make();
-
         $invoice = $this->invoices->find($invoice_id);
 
         if ($invoice === null) {
@@ -87,7 +83,6 @@ class ParcelController extends Controller
     public function store(ParcelRequest $request, int $invoice_id): RedirectResponse
     {
         $newParcel = $request->input();
-
         $invoice = $this->invoices->find($invoice_id);
 
         if ($invoice === null) {
@@ -97,11 +92,9 @@ class ParcelController extends Controller
         /** @var Parcel $parcel */
         $parcel = Parcel::query()->make($newParcel);
         $parcel->invoice_id = $invoice->id;
-        //$parcel->volume = $request['height'] * $request['width'] * $request['length'];
         $parcel->save();
 
-        $this->invoices->updatePrice($invoice);  // :TODO update invoicePrice
-
+        $this->invoices->updatePrice($invoice);
         $parcels = $this->parcels->getByInvoiceId($invoice->id);
 
         if ($parcel) {
@@ -166,7 +159,7 @@ class ParcelController extends Controller
         $updateParcel['volume'] = $request['height'] * $request['width'] * $request['length'];
 
         $result = $parcel->update($updateParcel);
-        $this->invoices->updatePrice($invoice);  // :TODO update invoicePrice
+        $this->invoices->updatePrice($invoice);
 
         $parcels = $this->parcels->getByInvoiceId($invoice->id);
 
